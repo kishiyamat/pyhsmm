@@ -69,4 +69,3 @@ def _get_predictive_likelihoods(k):
     past_likelihoods = logsumexp(alphal[:-k], axis=1)
 
     return future_likelihoods - past_likelihoods
-

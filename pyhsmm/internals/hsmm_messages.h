@@ -115,7 +115,7 @@ namespace hsmm
         FloatType *betal, FloatType *betastarl, IntType *stateseq, FloatType *randseq)
     {
         NPArray<FloatType> eA(A,M,M);
-        NPArray<FloatType> ecaBl(caBl,T,M);
+        NPArray<FloatType> ecaBl(caBl,T+1,M);
         NPArray<FloatType> eaDl(aDl,T,M);
         NPArray<FloatType> ebetal(betal,T,M);
         NPArray<FloatType> ebetastarl(betastarl,T,M);

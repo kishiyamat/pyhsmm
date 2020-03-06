@@ -46,7 +46,7 @@ class sdist(_sdist):
     def run(self):
         try:
             from Cython.Build import cythonize
-            cythonize(os.path.join('pyhsmm','**','*.pyx'))
+            cythonize(os.path.join('pyhsmm','**','*.pyx'), compiler_directives={'language_level' : "3"})
         except:
             warn('Failed to generate extension files from Cython sources')
         finally:
@@ -95,7 +95,7 @@ ext_modules = [
 if use_cython:
     from Cython.Build import cythonize
     try:
-        ext_modules = cythonize(extension_pathspec)
+        ext_modules = cythonize(extension_pathspec, compiler_directives={'language_level' : "3"})
     except:
         warn('Failed to generate extension module code from Cython files')
 

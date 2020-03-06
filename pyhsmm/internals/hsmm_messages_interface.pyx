@@ -58,11 +58,11 @@ def sample_forwards_log(
     # duration is deterministically 1
     cdef floating[:] randseq
     if floating is double:
-        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.double)
+        randseq = np.random.random(size=2*betal.shape[0]).astype(np.double)
     else:
-        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.float)
+        randseq = np.random.random(size=2*betal.shape[0]).astype(np.float)
 
-    ref.sample_forwards_log(A.shape[0],caBl.shape[0],&A[0,0],&pi0[0],
+    ref.sample_forwards_log(A.shape[0],betal.shape[0],&A[0,0],&pi0[0],
             &caBl[0,0],&aDl[0,0],&betal[0,0],&betastarl[0,0],&stateseq[0],&randseq[0])
 
     return np.asarray(stateseq)
@@ -134,4 +134,3 @@ def resample_log_multiple(
                 np.asarray(pi0) + np.asarray(aBls[i])[0] + np.asarray(temp)[0])
 
     return np.asarray(loglikes)
-
