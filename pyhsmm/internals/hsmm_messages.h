@@ -68,8 +68,8 @@ namespace hsmm
                 ebetal.row(t-1) = (eA * (ebetastarl.row(t) - cmax).exp().matrix().transpose()
                         ).array().log() + cmax;
                 for(int i=0; i<M; i++) {
-                    if (ebetal(t,i) != ebetal(t,i)) {
-                        ebetal(t,i) = -1.0*numeric_limits<Type>::infinity();
+                    if (ebetal(t-1,i) != ebetal(t-1,i)) {
+                        ebetal(t-1,i) = -1.0*numeric_limits<Type>::infinity();
                     }
                 }
             }
