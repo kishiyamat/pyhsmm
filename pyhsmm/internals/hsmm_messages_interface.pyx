@@ -89,7 +89,7 @@ def resample_log_multiple(
 
     betals = [np.empty((aBl.shape[0]+1,aBl.shape[1]),dtype=aBl.dtype) for aBl in aBls]
     betastarls = [np.empty_like(betal) for betal in betals]
-    caBls = [np.vstack((np.zeros(N,dtype=aBl.dtype),np.cumsum(aBl[:-1],axis=0))) for aBl in aBls]
+    caBls = [np.vstack((np.zeros(N,dtype=aBl.dtype),np.cumsum(aBl,axis=0))) for aBl in aBls]
 
     cdef vector[floating*] aBls_vect
     cdef vector[floating*] caBls_vect
